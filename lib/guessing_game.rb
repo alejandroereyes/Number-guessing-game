@@ -9,15 +9,15 @@ class NumberGuess
   def start
     # say hello to the user
     puts opener
-    puts @correct_number
+    puts @correct_number # use this to check outputs delete when done
     # prompt user for a guess
     get_input
     #loop until user guess is correct
     while @user_guess != @correct_number && @counter < 5
-      # evaluate the user's guess
+      # check if user's guess is too low or too high
       guess_checker
     end # loop
-    # Determine is user won or lost
+    # Determine is user won or lost & display results
     display_results
   end # start method
 
@@ -56,7 +56,11 @@ class NumberGuess
     if @user_guess == @correct_number && @counter <= 5
       puts ""
       puts "#{@user_guess} is correct!"
-      puts "You figured it out in #{@counter} guesses!"
+      if @counter == 1
+        puts "WOW! You figured it out in #{@counter} guess!"
+      else
+        puts "You figured it out in #{@counter} guesses!"
+      end
       puts "You're awesome!"
       @counter = 0
     else
