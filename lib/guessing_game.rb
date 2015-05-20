@@ -5,10 +5,12 @@ class NumberGuess
   end
 
   def start
-
+    # say hello to the user
     opener
-
+    # prompt user for a guess
     get_input
+
+
 
   end # start method
 
@@ -19,7 +21,15 @@ class NumberGuess
 
   def get_input
     print "Guess a number between 1 - 100 : "
-    user_guess = gets.chomp.to_i
+    user_guess = gets.chomp
+    # validate user input
+    while user_guess.class != Fixnum || user_guess < 1 || user_guess > 100
+      puts ""
+      puts "!!  Invalid Entry !!"
+      print "Guess a number between 1 - 100 : "
+      user_guess = gets.chomp
+    end # validation loop
+    user_guess.to_i!
   end # get_input method
 end # class
 
