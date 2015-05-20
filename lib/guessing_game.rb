@@ -1,5 +1,9 @@
 class NumberGuess
 
+  def initialize
+    @correct_number = rand(1..100)
+  end
+
   def start
 
     opener
