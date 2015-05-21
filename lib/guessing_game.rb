@@ -40,7 +40,7 @@ class NumberGuess
       @user_guess = gets.chomp.to_i
       @counter += 1
     end # validation loop
-    @user_guess
+    (1..100).include?(@user_guess)
   end # get_input method
 
   def guess_checker
