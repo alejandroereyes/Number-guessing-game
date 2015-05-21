@@ -45,17 +45,21 @@ class NumberGuess
 
   def guess_checker
     if @user_guess < @correct_number
-      if @low
+      if @low && @user_guess < @correct_number - 10
         puts "I told you, you were low... get it together.."
+      elsif @low && @user_guess > @correct_number - 11 && @user_guess < @correct_number
+        puts "you're getting warmer but..."
       end
-      puts "#{@user_guess} is too low!"
+      puts "#{@user_guess} is too low"
       @low = true
       get_input
     elsif @user_guess > @correct_number
-      if @high
+      if @high && @user_guess > @correct_number + 10
         puts "...How high are you?!"
+      elsif @high && @user_guess < @correct_number + 11 && @user_guess > @correct_number
+        puts "you're getting warmer but..."
       end
-      puts "#{@user_guess} is too high!"
+      puts "#{@user_guess} is too high"
       @high = true
       get_input
     end # conditional
