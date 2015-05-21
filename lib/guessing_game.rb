@@ -4,6 +4,8 @@ class NumberGuess
     @correct_number = rand(1..100)
     @user_guess = 0
     @counter = 0
+    @low = false
+    @high = false
   end
 
   def start
@@ -43,10 +45,16 @@ class NumberGuess
 
   def guess_checker
     if @user_guess < @correct_number
+      if @low
+        puts "I told you, you were low... get it together.."
+      end
       puts "#{@user_guess} is too low!"
       @low = true
       get_input
     elsif @user_guess > @correct_number
+      if @high
+        puts "...How high are you?!"
+      end
       puts "#{@user_guess} is too high!"
       @high = true
       get_input
