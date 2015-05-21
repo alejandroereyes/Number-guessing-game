@@ -9,7 +9,6 @@ class NumberGuess
   def start
     # say hello to the user
     puts opener
-    puts @correct_number # use this to check outputs delete when done
     # prompt user for a guess
     get_input
     #loop until user guess is correct
@@ -23,7 +22,7 @@ class NumberGuess
 
   def opener
     system ('clear')
-    "Welcome to Number Guess 3000 "
+    "Welcome to Number Guess 3000"
   end # opener method
 
   def get_input
@@ -45,9 +44,11 @@ class NumberGuess
   def guess_checker
     if @user_guess < @correct_number
       puts "#{@user_guess} is too low!"
+      @low = true
       get_input
     elsif @user_guess > @correct_number
       puts "#{@user_guess} is too high!"
+      @high = true
       get_input
     end # conditional
   end # guess_checker method
@@ -61,11 +62,11 @@ class NumberGuess
       else
         puts "You figured it out in #{@counter} guesses!"
       end
-      puts "You're awesome!"
       @counter = 0
+      puts "You're awesome!"
     else
       puts ""
-      puts "This is guess # #{@counter}, looks like you lost."
+      puts "This is guess ##{@counter}, looks like you lost."
       puts "That's okay, just don't take a job as a weight guessing carny ;)"
     end # conditional
   end # display_result method
