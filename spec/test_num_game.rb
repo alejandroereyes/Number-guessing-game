@@ -12,9 +12,13 @@ class MyNumberGuessTest < Test::Unit::TestCase
     assert_equal("Welcome to Number Guess 3000",@game.opener)# Then
   end
 
-  def test_get_input
+  def test_get_input_method
     guess_setup # Given
-     # When
-    assert_equal(true,@game.get_input) # Then
-  end # test_get_input method
+    assert_equal(true, @game.get_input) # Then
+  end
+
+  def test_guess_checker_method
+    guess_setup # Given
+    assert_equal(true, @game.guess_checker) # Then
+  end
 end # class
